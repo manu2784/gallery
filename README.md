@@ -6,5 +6,5 @@
 3. npm start
 
 ### Running tests
-1. npm 
+1. npm test or npm run then press a
 
