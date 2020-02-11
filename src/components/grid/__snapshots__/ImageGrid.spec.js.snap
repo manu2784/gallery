@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImageGrid should render the TopTenApp Page 1`] = `ShallowWrapper {}`;
+
+exports[`ImageGrid should render the image grid page 1`] = `ShallowWrapper {}`;

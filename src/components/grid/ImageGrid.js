@@ -1,9 +1,9 @@
 import React from "react";
 import { withStyles } from "@material-ui/styles";
 import { GridList, GridListTile, TablePagination } from "@material-ui/core/";
-//import SingleImage from "../image/SingleImage";
 import { Link } from "react-router-dom";
 
+// CSS-in-JSS
 const styles = () => ({
   topRoot: {
     marginTop: 100
@@ -28,8 +28,10 @@ const styles = () => ({
   spacer: {
     display: "none"
   },
-  hideSkeleton:{
-    display:"none"
+  images: {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover"
   }
 });
 
@@ -85,16 +87,21 @@ class ImageGrid extends React.Component {
   }
 
   render() {
-    //  if(this.state.images)
-    // console.log(this.state.images[0]);
     const { classes } = this.props;
     return (
       <div className={classes.topRoot}>
-        <GridList cellHeight={160} className={classes.gridList} cols={3} >
+        <GridList cellHeight={160} className={classes.gridList} cols={3}>
           {this.state.images &&
             this.state.images.map(img => (
-             <GridListTile key={img.id} cols={1}>
-               <Link to={`/image/${img.id}`}> <img src={img.largeImageURL} alt={img.id} /></Link>
+              <GridListTile key={img.id} cols={1}>
+                <Link to={`/image/${img.id}`}>
+                  {" "}
+                  <img
+                    className={classes.images}
+                    src={img.largeImageURL}
+                    alt={img.id}
+                  />
+                </Link>
               </GridListTile>
             ))}
           <TablePagination
@@ -112,7 +119,6 @@ class ImageGrid extends React.Component {
             onChangeRowsPerPage={this.handleChangeRowsPerPage}
           />
         </GridList>
-    
       </div>
     );
   }
